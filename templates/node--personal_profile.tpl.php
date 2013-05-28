@@ -1,13 +1,11 @@
+	<?php
+		//print_r($content['field_github']);
+		//print_r(array_keys($content));
+	?>
+
 <article id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-	<div class="social-bar">
-    <a class="" href="#"><i class="icon-twitter-sign"></i></a>
-    <a class="" href="#"><i class="icon-facebook-sign"></i></a>
-    <a class="" href="#"><i class="icon-linkedin-sign"></i></a>
-    <a class="" href="#"><i class="icon-github"></i></a>
-    <a class="" href="#"><i class="icon-google-plus-sign"></i></a>
-    <a class="" href="#"><i class="icon-pencil"></i></a>
-	</div>
-	
+	<?php print render_social_bar($content, $node); ?>
+
 	<?php print render($content['field_avatar']); ?>
 
 	<?php print render($title_prefix); ?>
@@ -71,4 +69,45 @@
 
   <?php print render($content['comments']); ?>
 
-</article> <!-- /.node -->
+</article> <!-- /.node --><?php
+
+function render_social_bar($content, $node) {
+	$out = '';
+	$social_fields = array(
+			'google_scholar',
+			'github',
+			'linkedin',
+			'twitter',
+			'g_plus',
+			'facebook',
+	);
+	$img_tx = array(
+			'g_plus'         => 'icon-google-plus-sign',
+			'facebook'       => 'icon-facebook-sign',
+			'twitter'        => 'icon-twitter-sign',
+			'linkedin'       => 'icon-linkedin-sign',
+			'google_scholar' => 'icon-pencil',
+			'github'         => 'icon-github',
+	);
+	$is_social = false;
+	foreach ($social_fields as $social_field) {
+		if (isset($content['field_'.$social_field])) {
+			$is_social = true;
+			break;
+		}
+	}
+	if ($is_social) {
+		$out .= '<div class="social-bar">';
+		foreach ($social_fields as $social_field) {
+			if (isset($content['field_'.$social_field])) {
+				$field_items = field_get_items('node', $node, "field_$social_field");
+				$href = $field_items[0]['safe_value'];
+				$class = $img_tx[$social_field];
+				// trailing space so it wraps
+				$out .= "<a class=\"\" href=\"$href\"><i class=\"$class\"></i></a>" . ' ';
+			}
+		}
+		$out .= '</div>';
+	}
+	return $out;
+}

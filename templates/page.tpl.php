@@ -1,7 +1,9 @@
 <?php
-	$has_own_menu = false;
 	$project = _node_to_project($node);
 	$project_url = drupal_lookup_path('alias', 'node/'.$project->nid);
+	$menu_name   = _project_to_menu_name($project);
+	$project_nav =  menu_tree($menu_name);
+	$has_own_menu = !empty($project_nav);
 ?>
 	<div class="container"><div class="paper-sheet">
 	
@@ -46,12 +48,17 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
+				<?php if ($has_own_menu) { ?>
+					<ul class="nav">
+						<li>
+							<a class="nav" href="/<?php echo $project_url?>/">Profile</a>
+						</li>
+					</ul>
+				<?php } ?>
 				<div class="nav-collapse">
 					<nav role="navigation">
 					<?php
-						$menu_name   = _project_to_menu_name($project);
-						$project_nav =  menu_tree($menu_name);
-						if (!empty($project_nav)) {
+						if ($has_own_menu) {
 							$project_nav['#theme_wrappers'] = array('menu_tree__primary');
 							print render($project_nav);
 						} else {
