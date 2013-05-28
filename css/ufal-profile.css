@@ -120,7 +120,7 @@ span.or {
 .field-name-field-avatar {
 	float: right;
 }
-#myCarousel { height: 280px; overflow:hidden}
+/* #myCarousel { height: 280px; overflow:hidden} */
 .carousel-indicators {
 position: absolute;
 top: auto;
