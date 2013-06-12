@@ -26,7 +26,7 @@
 				$contact_fields = array(
 					'field_room_number',
 					'field_office_hours',
-					'field_email',
+					'field_email2',
 					'field_work_phone',
 					'field_work_fax',
 					'field_private_phone',
