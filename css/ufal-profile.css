@@ -1,35 +1,8 @@
-body {
-	padding-top: 30px;
-	padding-bottom: 40px;
-	background-color: #ddd;
-}
-.paper-sheet {
-	padding: 30px 45px 45px 45px;
-}
-
-.my-search {
-	position: relative;
-}
-
-.my-search .my-search-query {
-	padding-left: 29px;
-}
-
-.my-search .icon-search {
-	position: absolute;
-	top: 11px;
-	left: 9px;
-	background-image: url("http://twitter.github.com/bootstrap/assets/img/glyphicons-halflings.png");
-}
-@media (max-width: 979px) {
-	.my-search .icon-search { top:22px; left: 22px }
-}
-
-header a {
+header.site-head a {
 	float: right;
 	margin: 20px 20px 20px 10px;
 }
-header a.ufal {
+header.site-head a.ufal {
 	float: left;
 	margin-right: 15px;
 	margin-bottom: 25px;
@@ -39,44 +12,9 @@ header a.logo {
 	float: left;
 }
 
-header h1 {
+header.site-head h1 {
 	font-size: 30px;
 	margin-top: 22px;
-}
-header h2 {
-	font-size: 18px;
-	line-height: 28px;
-	display: inline;
-	color: #777;
-}
-
-.nav-header {
-	color: #A60C00;
-}
-.navbar .nav > li > a {
-	text-transform: uppercase;
-	font-weight: bold;
-}
-
-.row {
-	ZXmargin-bottom: 45px;
-}
-
-.navbar-inverse .nav > li.active-trail > a {
-	color: #fff;
-}
-
-.dl-horizontal dt {
-	width: 90px;
-}
-.dl-horizontal dd {
-	margin-left: 110px;
-}
-
-span.or {
-	margin-left: 13px;
-	margin-right: 7px;
-	color: gray;
 }
 
 /* Large desktop */
@@ -84,8 +22,6 @@ span.or {
 }
 
 @media (max-width: 1199px) {
-	header h2 { display: none!important; }
-	header h1 { font-size: 29px; line-height: normal; }
 }
 
 @media (min-width: 979px) {
@@ -101,20 +37,13 @@ span.or {
  
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
-	header h1 { display: none; }
 }
  
 /* Landscape phones and down */
 @media (max-width: 599px) {
-	header a {display:none}
-	header a.ufal {display:block}
 }
 
 @media (max-width: 480px) {
-	.hero-unit h1 { font-size: 30px }
-	.hero-unit aside { width: 80%!important }
-	body { padding: 0 }
-	.paper-sheet { padding: 10px; }
 }
 
 .field-name-field-avatar {

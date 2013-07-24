@@ -7,7 +7,7 @@
 ?>
 	<div class="container"><div class="paper-sheet">
 	
-	<header class="clearfix" style="font-family: 'Anaheim', sans-serif;">
+	<header class="site-header clearfix" style="font-family: 'Anaheim', sans-serif;">
 		<a class="cuni" href="http://www.cuni.cz/">
 		<?php 
 			$params = array(
