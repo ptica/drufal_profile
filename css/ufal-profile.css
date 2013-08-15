@@ -17,6 +17,11 @@ header.site-head h1 {
 	margin-top: 22px;
 }
 
+.field-name-field-former-name {
+	font-size: 14px;
+	line-height: 14px;
+}
+
 /* Large desktop */
 @media (min-width: 1200px) {
 }

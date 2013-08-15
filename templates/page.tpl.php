@@ -78,7 +78,7 @@
 				<?php if ($has_own_menu) { ?>
 					<ul class="nav pull-right">
 						<li>
-							<a class="nav" href="/">back to ÚFAL ↩</a>
+							<a class="nav" href="/people">back to People ↩</a>
 						</li>
 					</ul>
 				<?php } ?>

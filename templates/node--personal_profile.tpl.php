@@ -10,7 +10,8 @@
 
 	<?php print render($title_prefix); ?>
 	<?php if ($title): ?>
-		<h1<?php print $title_attributes; ?>><?php print $title; ?></h1>
+		<h1<?php print $title_attributes; ?>><span class="bounding-box"><?php print $title; ?>
+			<?php print render($content['field_former_name']); ?></span></h1>
 	<?php endif; ?>
 	<?php print render($title_suffix); ?>
 	
@@ -49,9 +50,11 @@
 	
 	
 	<?php echo render($content['field_main_research_interests']); ?>
+	<?php echo render($content['field_projects']); ?>
 	<?php echo render($content['field_curriculum_vitae']); ?>
 	<?php echo render($content['field_teaching']); ?>
 	<?php echo render($content['field_selected_bibliography']); ?>
+	<?php echo render($content['field_students']); ?>
 	<?php echo render($content['body']); ?>
 	
   <?php
