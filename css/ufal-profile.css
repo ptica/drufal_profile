@@ -22,6 +22,10 @@ header.site-head h1 {
 	line-height: 14px;
 }
 
+/* */
+.nav.project-title { margin: 0 }
+.nav.project-title a { margin: 0 }
+
 /* Large desktop */
 @media (min-width: 1200px) {
 }

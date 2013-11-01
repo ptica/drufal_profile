@@ -1,10 +1,3 @@
-<?php
-	$project = _node_to_project($node);
-	$project_url = drupal_lookup_path('alias', 'node/'.$project->nid);
-	$menu_name   = _project_to_menu_name($project);
-	$project_nav =  menu_tree($menu_name);
-	$has_own_menu = !empty($project_nav);
-?>
 	<div class="container"><div class="paper-sheet">
 	
 	<header class="site-header clearfix" style="font-family: 'Anaheim', sans-serif;">
@@ -40,28 +33,18 @@
 		<h2>Charles University in Prague, Czech Republic</h2>
 	</header>
 	
-	<div class="navbar navbar-inverse">
-		<div class="navbar-inner">
-			<div class="container">
-				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</a>
-				<?php if ($has_own_menu) { ?>
-					<ul class="nav">
-						<li>
-							<a class="nav" href="/<?php echo $project_url?>/">Profile</a>
-						</li>
-					</ul>
-				<?php } ?>
-				<div class="nav-collapse">
-					<nav role="navigation">
-					<?php
-						if ($has_own_menu) {
-							$project_nav['#theme_wrappers'] = array('menu_tree__primary');
-							print render($project_nav);
-						} else {
+	<div class="navbar <?php if (!empty($sub_nav)) echo 'with-subnav';?>">
+		<div class="navbar-inverse">
+			<div class="navbar-inner">
+				<div class="container">
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</a>
+					<div class="nav-collapse">
+						<nav role="navigation">
+						<?php
 							if ($primary_nav) {
 								print render($primary_nav);
 							}
@@ -71,19 +54,20 @@
 							if ($secondary_nav) {
 								//print render($secondary_nav);
 							}
-						}
-					?>
-					</nav>
+						?>
+						</nav>
+					</div>
 				</div>
-				<?php if ($has_own_menu) { ?>
-					<ul class="nav pull-right">
-						<li>
-							<a class="nav" href="/people">back to People ↩</a>
-						</li>
-					</ul>
-				<?php } ?>
 			</div>
 		</div>
+		<?php if (!empty($sub_nav)) { ?>
+			<div class="navbar-inner">
+				<div class="container">
+					<a class="brand" style="font-weight:bold" href="/<?php echo $project_url?>/"><?php echo $project_acronym; ?></a>
+					<?php echo render($sub_nav); ?>
+				</div>
+			</div>
+		<?php } ?>
 	</div>
 	
 	<?php if ($messages): ?>
