@@ -55,6 +55,10 @@
 								//print render($secondary_nav);
 							}
 						?>
+						<?php
+							$block = module_invoke('search', 'block_view', 'form');
+							print render($block);
+						?>
 						</nav>
 					</div>
 				</div>
@@ -63,7 +67,7 @@
 		<?php if (!empty($sub_nav)) { ?>
 			<div class="navbar-inner">
 				<div class="container">
-					<a class="brand" style="font-weight:bold" href="/<?php echo $project_url?>/"><?php echo $project_acronym; ?></a>
+					<a class="brand" href="/<?php echo $project_url?>/"><?php echo $project_acronym; ?></a>
 					<?php echo render($sub_nav); ?>
 				</div>
 			</div>
@@ -89,10 +93,10 @@
 	<hr>
 
 	<footer class="clearfix">
-		<?php //print render($page['footer']); ?></a>
+		<?php //print render($page['footer']); ?>
 		<?php require_once drupal_get_path('theme', 'drufal') . '/templates/footer.php'; ?>
 	</footer>
 
 	</div></div> <!-- /container && /papersheet -->
 
-	<link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">

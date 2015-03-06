@@ -57,6 +57,7 @@ header.site-head h1 {
 
 .field-name-field-avatar {
 	float: right;
+	margin-left: 20px;
 }
 /* #myCarousel { height: 280px; overflow:hidden} */
 .carousel-indicators {

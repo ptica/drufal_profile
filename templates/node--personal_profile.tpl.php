@@ -53,6 +53,7 @@
 	<?php echo render($content['field_projects']); ?>
 	<?php echo render($content['field_curriculum_vitae']); ?>
 	<?php echo render($content['field_teaching']); ?>
+	<?php echo render($content['field_teaching_long']); ?>
 	<?php echo render($content['field_selected_bibliography']); ?>
 	<?php echo render($content['field_students']); ?>
 	<?php echo render($content['body']); ?>
@@ -79,6 +80,7 @@ function render_social_bar($content, $node) {
 	$social_fields = array(
 			'google_scholar',
 			'github',
+			'bitbucket',
 			'linkedin',
 			'twitter',
 			'g_plus',
@@ -91,6 +93,7 @@ function render_social_bar($content, $node) {
 			'linkedin'       => 'icon-linkedin-sign',
 			'google_scholar' => 'icon-pencil',
 			'github'         => 'icon-github',
+			'bitbucket'      => 'icon-bitbucket-sign',
 	);
 	$is_social = false;
 	foreach ($social_fields as $social_field) {
